@@ -1,0 +1,115 @@
+" Customised .vimrc config file
+"
+"
+
+""""""""""""""""""""
+" General Settings "
+"                  "
+""""""""""""""""""""
+
+" Set noncompatible mode so we get all the fancy features
+set nocompatible
+
+" Set the terminal type to xterm
+set term=xterm
+
+" Enable mouse usage (all modes) in terminals
+set mouse=a
+
+" Useful when using dark background in conjunction with syntax highlighting
+set background=dark
+
+" Jump directly to the last position when reopening a file
+"if has("autocmd")
+"  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+"    \| exe "normal! g'\"" | endif
+"endif
+
+" Highlight the current line
+" autocmd BufEnter * setlocal cursorline "cursorcolumn
+" autocmd BufLeave * setlocal nocursorline "nocursorcolumn
+
+" Hide buffers when they are abandoned
+" set hidden
+
+" Show (partial) command in status line.
+set showcmd
+
+" Spell checking
+" set spell spelllang=en_gb
+
+"
+" Searching
+"
+set showmatch	" Show matching brackets.
+set ignorecase	" Do case insensitive matching
+set smartcase	" Do smart case matching
+set incsearch	" Incremental search
+"set hlsearch	" Highlight all matches
+
+
+"
+" Screen Management
+"
+
+" Toggle full buffer height 
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
+" Fast window resizing with +/_ keys (horizontal); =/- keys (vertical)
+map + <C-W>+
+map _ <C-W>-
+map = <c-w>>
+map - <c-w><
+
+
+
+
+""""""""""""""""""""""""
+" Programming Settings "
+"                      "
+""""""""""""""""""""""""
+
+" Enable syntax highlighting
+syntax on
+
+" Turn on line numbering. Turn it off with "set nonumber" 
+set number
+
+" Toggle line numbers and fold column for easy copying:
+" nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+" Load indentation rules according to the detected filetype
+if has("autocmd")
+  filetype indent on
+endif
+
+" Automatically save before commands like :next and :make
+" set autowrite
+
+" Set the working directory to be the same as the buffer currently being edited
+" This messes with cscope so is disabled here
+" set autochdir
+
+
+" Number of spaces that a tab represents
+set tabstop=2
+
+" Number of spaces to use for each step of (auto)indent
+set shiftwidth=2
+
+" Insert blanks or delete according to shiftwidth when tabbing at start of line
+set smarttab
+
+" Insert spaces instead of tabs (Use CTRL-V<Tab> to insert a real tab)
+set expandtab
+
+" Number of spaces a tab counts for
+set softtabstop=4
+
+" Copy indent from current line when starting a new line
+set autoindent
+
+" Toggle paste mode to allow pasting without autoindenting
+set pastetoggle=<F10>
+
